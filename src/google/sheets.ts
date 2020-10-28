@@ -21,7 +21,8 @@ function getAccessToSheets(auth: OAuth2Client): sheets_v4.Sheets {
 function getAuthUrl(): string {
   const url: string = oauthClient.generateAuthUrl({
     access_type: 'offline',
-    scope
+    scope,
+    response_type: 'code'
   })
 
   return url
