@@ -7,13 +7,13 @@ async function clearData(req: Request, res: Response) {
   try {
     const sheets: sheets_v4.Sheets = getAccessToSheets(oauthClient)
 
-    const id: string = req.body.id
-    const range: string = req.body.range
+    const id = req.query.id
+    const range = req.query.range
 
     const { data } = await sheets.spreadsheets.values.clear({
-      spreadsheetId: id,
-      auth: oauthClient,
-      range
+      spreadsheetId: id as string,
+      range: range as string,
+      auth: oauthClient
     })
 
     return res.json({

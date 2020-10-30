@@ -7,13 +7,15 @@ async function batchClearData(req: Request, res: Response) {
   try {
     const sheets: sheets_v4.Sheets = getAccessToSheets(oauthClient)
 
-    const id: string = req.body.id
+    const id = req.query.id
 
-    const stringOfRanges: string = req.body.ranges
-    const arrOfRanges: string[] = stringOfRanges.split(', ')
+    const stringOfRanges = req.query.ranges
+    const arrOfRanges: string[] = (stringOfRanges as string).split(', ')
+
+    console.log(arrOfRanges)
 
     const { data } = await sheets.spreadsheets.values.batchClear({
-      spreadsheetId: id,
+      spreadsheetId: id as string,
       requestBody: {
         ranges: arrOfRanges,
       },
@@ -24,7 +26,7 @@ async function batchClearData(req: Request, res: Response) {
       message: data
     })
   } catch (error) {
-    return console.error(error)
+    return console.error(error.message)
   }
 }
 

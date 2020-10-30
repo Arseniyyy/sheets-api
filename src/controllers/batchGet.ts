@@ -7,13 +7,13 @@ async function retrieveUsersBatchGet(req: Request, res: Response) {
   try {
     const sheets: sheets_v4.Sheets = getAccessToSheets(oauthClient)
 
-    const id: string = req.body.id
+    const id = req.query.id
 
-    const ranges: string = req.body.ranges
-    const arrOfRanges: string[] = ranges.split(', ')
+    const ranges = req.query.ranges
+    const arrOfRanges: string[] = (ranges as string).split(', ')
 
     const opts: sheets_v4.Params$Resource$Spreadsheets$Values$Batchget = {
-      spreadsheetId: id,
+      spreadsheetId: id as string,
       ranges: arrOfRanges,
       valueRenderOption: 'FORMATTED_VALUE',
       auth: oauthClient

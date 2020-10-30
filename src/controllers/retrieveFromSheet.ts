@@ -3,16 +3,16 @@ import { Request, Response } from 'express'
 import { oauthClient } from '../google/sheets'
 import { getAccessToSheets } from '../google/sheets'
 
-async function retrieveUsers(req: Request, res: Response) {
+export async function retrieveData(req: Request, res: Response) {
   try {
     const sheets: sheets_v4.Sheets = getAccessToSheets(oauthClient)
 
-    const id: string = req.body.id
-    const range: string = req.body.range
+    const id = req.query.id
+    const range = req.query.range
   
     const opts: sheets_v4.Params$Resource$Spreadsheets$Values$Get = {
-      spreadsheetId: id,
-      range,
+      spreadsheetId: id as string,
+      range: range as string,
       auth: oauthClient
     }
   
@@ -23,7 +23,7 @@ async function retrieveUsers(req: Request, res: Response) {
     if (rows.length) {
       const rowHead = rows.shift()
   
-      const formattedUsers = rows.map((row: any[]) => {
+      const formattedUsers: string[] = rows.map((row: any[]) => {
         return rowHead.reduce((obj: object, key: string, i: number) => {
           obj[key] = row[i]
           return obj
@@ -38,8 +38,4 @@ async function retrieveUsers(req: Request, res: Response) {
   } catch (error) {
     return console.error(error)
   }
-}
-
-export {
-  retrieveUsers
 }

@@ -2,8 +2,7 @@ import { google, sheets_v4 } from 'googleapis'
 import sheetsDeclaration from '../controllers/sheets/sheetsDeclaration'
 import { OAuth2Client, OAuth2ClientOptions } from 'google-auth-library'
 import creds from './client_secret.json'
-
-const scope: string = 'https://www.googleapis.com/auth/spreadsheets'
+import { scopes } from './scopes'
 
 const opts: OAuth2ClientOptions = {
   clientId: creds.web.client_id,
@@ -21,8 +20,9 @@ function getAccessToSheets(auth: OAuth2Client): sheets_v4.Sheets {
 function getAuthUrl(): string {
   const url: string = oauthClient.generateAuthUrl({
     access_type: 'offline',
-    scope,
-    response_type: 'code'
+    scope: scopes,
+    response_type: 'code',
+    login_hint: 'arskosh05@mail.ru'
   })
 
   return url
