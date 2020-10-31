@@ -1,9 +1,9 @@
-import http, { Server } from 'http'
+import http from 'http'
 import app from './app'
 import { google } from 'googleapis'
 import { oauthClient } from './google/sheets'
 
-const server: Server = http.createServer(app)
+const server: http.Server = http.createServer(app)
 
 server.on('listening', () => {
   google.options({

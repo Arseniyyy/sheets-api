@@ -23,7 +23,7 @@ router
   .get('/clear-data', clearData)
   .get('/batch-clear', batchClearData)
 
-  .get('/google', googleAuth)
+  .get('/g', googleAuth)
   .get('/oauth2callback', oauth2callback)
   .get('/from-sheets-to-excel', fromSheetsToExcel)
 
