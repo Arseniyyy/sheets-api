@@ -3,7 +3,7 @@ import { Request, Response } from 'express'
 import { oauthClient } from '../google/sheets'
 import { getAccessToSheets } from '../google/sheets'
 
-async function batchClearData(req: Request, res: Response) {
+export async function batchClearData(req: Request, res: Response) {
   try {
     const sheets: sheets_v4.Sheets = getAccessToSheets(oauthClient)
 
@@ -29,5 +29,3 @@ async function batchClearData(req: Request, res: Response) {
     return console.error(error.message)
   }
 }
-
-export { batchClearData }

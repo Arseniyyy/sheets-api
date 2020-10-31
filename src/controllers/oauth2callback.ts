@@ -1,11 +1,8 @@
 import { Request, Response } from 'express'
 import { oauthClient } from '../google/sheets'
 import { Credentials } from 'google-auth-library'
-import { makeRequestToAnAPI } from '../google/drive'
-import { getAccessToSheets } from '../google/sheets'
-import { sheets_v4 } from 'googleapis'
 
-async function oauth2callback(req: Request, res: Response) {
+export async function oauth2callback(req: Request, res: Response) {
   try {
     const code: any = req.query.code
 
@@ -32,5 +29,3 @@ async function oauth2callback(req: Request, res: Response) {
     return console.error(error.message)
   }
 }
-
-export { oauth2callback }
