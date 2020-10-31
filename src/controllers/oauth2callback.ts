@@ -14,14 +14,6 @@ export async function oauth2callback(req: Request, res: Response) {
       oauthClient.setCredentials(tokens)
     })
 
-    // const sheets: sheets_v4.Sheets = getAccessToSheets(oauthClient)
-
-    // const { data } = await sheets.spreadsheets.values.get({
-    //   spreadsheetId: '1Of2NHI18CtlWnRrOP2BZyRZczB8LpTk6u4VH9ssLq2k',
-    //   range: 'sheet',
-    //   auth: oauthClient
-    // })
-
     return res.json({
       message: 'authenticated successfuly. Now you can make requests to the api'
     })

@@ -1,6 +1,4 @@
 import { google, sheets_v4 } from 'googleapis'
-import { OAuth2Client } from 'google-auth-library'
+import { oauthClient } from '../../google/sheets'
 
-export default function(auth: OAuth2Client): sheets_v4.Sheets {
-  return google.sheets({ version: 'v4', auth })
-}
+export const sheets: sheets_v4.Sheets = google.sheets({ version: 'v4', auth: oauthClient })

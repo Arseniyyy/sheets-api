@@ -1,15 +1,12 @@
 import xlsx from 'xlsx'
 import { oauthClient } from '../google/sheets'
-import { getAccessToSheets } from '../google/sheets'
 import { Request, Response } from 'express'
-import { sheets_v4 } from 'googleapis'
+import { sheets } from './sheets/sheetsDeclaration'
 
 // path = E:/Programming/google_apis/sheets/src/excel/files/By_xlsx.xlsx
 
 export async function fromSheetsToExcel(req: Request, res: Response) {
   try {
-    const sheets: sheets_v4.Sheets = getAccessToSheets(oauthClient)
-
     const id = req.query.id
     const range = req.query.range
 
