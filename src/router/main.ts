@@ -18,13 +18,13 @@ router.get('/', (req: Request, res: Response) => {
 // req: Request, res: Response
 
 router
-  .get('/get', retrieveData)
-  .get('/batch-get', retrieveUsersBatchGet)
-  .get('/clear-data', clearData)
-  .get('/batch-clear', batchClearData)
+  .get('https://tests-288314.oa.r.appspot.com/get', retrieveData)
+  .get('https://tests-288314.oa.r.appspot.com/batch-get', retrieveUsersBatchGet)
+  .get('https://tests-288314.oa.r.appspot.com/clear-data', clearData)
+  .get('https://tests-288314.oa.r.appspot.com/batch-clear', batchClearData)
 
-  .get('/g', googleAuth)
-  .get('/oauth2callback', oauth2callback)
-  .get('/from-sheets-to-excel', fromSheetsToExcel)
+  .get('https://tests-288314.oa.r.appspot.com/g', googleAuth)
+  .get('https://tests-288314.oa.r.appspot.com/oauth2callback', oauth2callback)
+  .get('https://tests-288314.oa.r.appspot.com/from-sheets-to-excel', fromSheetsToExcel)
 
 export default router
