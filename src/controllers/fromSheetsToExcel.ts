@@ -23,7 +23,7 @@ export async function fromSheetsToExcel(req: Request, res: Response) {
 
     xlsx.utils.book_append_sheet(newWb, newWorksheet, String(req.query.sheet_name))
 
-    xlsx.writeFile(newWb, `E:/Programming/google_apis/sheets/src/excel/files/${req.query.file_name}.xlsx`)
+    xlsx.writeFile(newWb, String(req.query.path))
 
     return res.json({
       message: 'File created'

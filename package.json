@@ -19,7 +19,7 @@
   },
   "scripts": {
     "tsc": "tsc -w --rootDir ./src --outDir ./dist --esModuleInterop true --resolveJsonModule true",
-    "start": "nodemon ./dist/server.js"
+    "start": "node ./dist/server.js"
   },
   "keywords": [],
   "author": "",

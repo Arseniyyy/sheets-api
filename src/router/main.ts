@@ -16,13 +16,13 @@ router.get('/', (req: Request, res: Response) => {
 })
 
 router
-  .get('/get', retrieveData)
-  .get('/batch-get', retrieveUsersBatchGet)
-  .get('/clear-data', clearData)
-  .get('/batch-clear', batchClearData)
+  .get('https://sheet-project-294316.el.r.appspot.com/get', retrieveData)
+  .get('https://sheet-project-294316.el.r.appspot.com/batch-get', retrieveUsersBatchGet)
+  .get('https://sheet-project-294316.el.r.appspot.com/clear-data', clearData)
+  .get('https://sheet-project-294316.el.r.appspot.com/batch-clear', batchClearData)
 
-  .get('/g', googleAuth)
-  .get('/oauth2callback', oauth2callback)
-  .get('/from-sheets-to-excel', fromSheetsToExcel)
+  .get('https://sheet-project-294316.el.r.appspot.com/g', googleAuth)
+  .get('https://sheet-project-294316.el.r.appspot.com/oauth2callback', oauth2callback)
+  .get('https://sheet-project-294316.el.r.appspot.com/from-sheets-to-excel', fromSheetsToExcel)
 
 export default router
