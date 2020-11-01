@@ -1,5 +1,5 @@
 import xlsx from 'xlsx'
-import { oauthClient } from '../google/sheets'
+import { oauthClient } from '../google/oauth2Client'
 import { Request, Response } from 'express'
 import { sheets } from './sheets/sheetsDeclaration'
 

@@ -1,6 +1,6 @@
 import { sheets_v4 } from 'googleapis'
 import { Request, Response } from 'express'
-import { oauthClient } from '../google/sheets'
+import { oauthClient } from '../google/oauth2Client'
 import { sheets } from './sheets/sheetsDeclaration'
 
 export async function retrieveData(req: Request, res: Response) {

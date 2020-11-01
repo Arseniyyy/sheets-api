@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { oauthClient } from '../google/sheets'
+import { oauthClient } from '../google/oauth2Client'
 import { Credentials } from 'google-auth-library'
 
 export async function oauth2callback(req: Request, res: Response) {

@@ -11,13 +11,3 @@ const opts: OAuth2ClientOptions = {
 
 export const oauthClient: OAuth2Client = new google.auth.OAuth2(opts)
 
-export function getAuthUrl(): string {
-  const url: string = oauthClient.generateAuthUrl({
-    access_type: 'offline',
-    scope: scopes,
-    response_type: 'code',
-    login_hint: 'arskosh05@mail.ru'
-  })
-
-  return url
-}

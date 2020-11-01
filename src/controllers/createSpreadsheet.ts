@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { oauthClient } from '../google/sheets'
+import { oauthClient } from '../google/oauth2Client'
 import { sheets } from './sheets/sheetsDeclaration'
 
 export async function createSpreadsheet(req: Request, res: Response) {
