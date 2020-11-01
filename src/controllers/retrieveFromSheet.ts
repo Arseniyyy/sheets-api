@@ -5,35 +5,22 @@ import { sheets } from './sheets/sheetsDeclaration'
 
 export async function retrieveData(req: Request, res: Response) {
   try {
-
-    const id = req.query.id
-    const range = req.query.range
+    const id: string = String(req.query.id)
+    const range: string = String(req.query.range)
   
     const opts: sheets_v4.Params$Resource$Spreadsheets$Values$Get = {
-      spreadsheetId: id as string,
-      range: range as string,
+      spreadsheetId: id,
+      range: range,
       auth: oauthClient
     }
   
     const response = await sheets.spreadsheets.values.get(opts)
   
     const rows: any[] = response.data.values
-  
-    if (rows.length) {
-      const rowHead = rows.shift()
-  
-      const formattedUsers: string[] = rows.map((row: any[]) => {
-        return rowHead.reduce((obj: object, key: string, i: number) => {
-          obj[key] = row[i]
-          return obj
-        }, {})
-      })
-  
-  
-      return res.json({
-        message: formattedUsers
-      })
-    }
+    
+    return res.json({
+      message: rows
+    })
   } catch (error) {
     return console.error(error)
   }
