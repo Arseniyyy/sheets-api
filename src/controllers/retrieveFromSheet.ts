@@ -22,6 +22,9 @@ export async function retrieveData(req: Request, res: Response) {
       message: rows
     })
   } catch (error) {
-    return console.error(error)
+    console.error(error.message)
+    return res.json({
+      error: error.message
+    })
   }
 }

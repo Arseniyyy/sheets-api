@@ -4,20 +4,29 @@ import { Credentials } from 'google-auth-library'
 
 export async function oauth2callback(req: Request, res: Response) {
   try {
-    const code: any = req.query.code
+    if (req.query.code !== undefined) {
+      const code: any = req.query.code
 
-    const allTokens = await oauthClient.getToken(code)
+      const allTokens = await oauthClient.getToken(code)
+    
+      oauthClient.setCredentials(allTokens.tokens)
   
-    oauthClient.setCredentials(allTokens.tokens)
-
-    oauthClient.on('tokens', (tokens: Credentials) => {
-      oauthClient.setCredentials(tokens)
-    })
-
-    return res.json({
-      message: 'authenticated successfuly. Now you can make requests to the api'
-    })
+      oauthClient.on('tokens', (tokens: Credentials) => {
+        oauthClient.setCredentials(tokens)
+      })
+  
+      return res.json({
+        message: 'authenticated successfuly. Now you can make requests to the api'
+      })
+    } else {
+      return res.json({
+        error: req.query.error
+      })
+    }
   } catch (error) {
-    return console.error(error.message)
+    console.error(error.message)
+    return res.json({
+      error: error.message
+    })
   }
 }

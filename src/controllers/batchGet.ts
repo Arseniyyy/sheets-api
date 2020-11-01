@@ -23,6 +23,9 @@ export async function retrieveUsersBatchGet(req: Request, res: Response) {
       message: response.data.valueRanges
     })
   } catch (error) {
-    return console.error(error)
+    console.error(error.message)
+    return res.json({
+      error: error.message
+    })
   }
 }

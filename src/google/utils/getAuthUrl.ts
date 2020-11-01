@@ -4,7 +4,8 @@ import { scopes } from '../scopes'
 export function getAuthUrl(): string {
   const url: string = oauthClient.generateAuthUrl({
     access_type: 'offline',
-    scope: scopes
+    scope: scopes,
+    prompt: 'consent'
   })
 
   return url

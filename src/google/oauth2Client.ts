@@ -1,7 +1,6 @@
 import { google } from 'googleapis'
 import { OAuth2Client, OAuth2ClientOptions } from 'google-auth-library'
 import creds from './client_secret.json'
-import { scopes } from './scopes'
 
 const opts: OAuth2ClientOptions = {
   clientId: creds.web.client_id,
@@ -10,4 +9,3 @@ const opts: OAuth2ClientOptions = {
 }
 
 export const oauthClient: OAuth2Client = new google.auth.OAuth2(opts)
-

@@ -29,6 +29,9 @@ export async function fromSheetsToExcel(req: Request, res: Response) {
       message: 'File created'
     })
   } catch (error) {
-    return console.error(error.message)
+    console.error(error.message)
+    return res.json({
+      error: error.message
+    })
   }
 }

@@ -17,6 +17,9 @@ export async function clearData(req: Request, res: Response) {
       message: data
     })
   } catch (error) {
-    return console.error(error)
+    console.error(error.message)
+    return res.json({
+      error: error.message
+    })
   }
 }
