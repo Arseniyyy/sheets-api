@@ -20,7 +20,7 @@ export async function retrieveUsersBatchGet(req: Request, res: Response) {
     const response = await sheets.spreadsheets.values.batchGet(opts)
 
     return res.json({
-      message: response.data.valueRanges
+      message: response.data
     })
   } catch (error) {
     console.error(error.message)
