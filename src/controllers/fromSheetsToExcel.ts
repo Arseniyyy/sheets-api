@@ -2,6 +2,7 @@ import xlsx from 'xlsx'
 import { oauthClient } from '../google/oauth2Client'
 import { Request, Response } from 'express'
 import { sheets } from './sheets/sheetsDeclaration'
+import path from 'path'
 
 // path = E:/Programming/google_apis/sheets/src/excel/files/By_xlsx.xlsx
 
@@ -23,7 +24,7 @@ export async function fromSheetsToExcel(req: Request, res: Response) {
 
     xlsx.utils.book_append_sheet(newWb, newWorksheet, String(req.query.sheet_name))
 
-    xlsx.writeFile(newWb, String(req.query.path))
+    xlsx.writeFile(newWb, path.join(__dirname, 'excel/files/created_automatically.xlsx'))
 
     return res.json({
       message: 'File created'

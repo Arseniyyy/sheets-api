@@ -8,9 +8,7 @@ export async function createSpreadsheet(req: Request, res: Response) {
       auth: oauthClient
     })
 
-    return res.json({
-      message: data
-    })
+    return res.redirect(data.spreadsheetUrl)
   } catch (error) {
     console.error(error.message)
     return res.json({

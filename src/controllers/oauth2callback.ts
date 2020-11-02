@@ -5,7 +5,7 @@ import { Credentials } from 'google-auth-library'
 export async function oauth2callback(req: Request, res: Response) {
   try {
     if (req.query.code !== undefined) {
-      const code: any = req.query.code
+      const code: string = String(req.query.code)
 
       const allTokens = await oauthClient.getToken(code)
     

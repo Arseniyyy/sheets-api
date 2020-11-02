@@ -11,9 +11,8 @@ server.on('listening', () => {
   })
 })
 
-const port: number = Number(process.env.PORT) || 3000
+const port: number = Number(process.env.PORT) || 8080
 
 server.listen(port)
 
-// [projectID].df.r.appspot.com
-// sheet-project-294316.df.r.appspot.com
+// https://sheet-project-294316.el.r.appspot.com

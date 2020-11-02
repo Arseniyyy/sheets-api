@@ -6,6 +6,7 @@ import { batchClearData } from '../controllers/batchClear'
 import { googleAuth } from '../controllers/googleAuth'
 import { oauth2callback } from '../controllers/oauth2callback'
 import { fromSheetsToExcel } from '../controllers/fromSheetsToExcel'
+import { createSpreadsheet } from '../controllers/createSpreadsheet'
 
 const router: Router = Router()
 
@@ -16,13 +17,14 @@ router.get('/', (req: Request, res: Response) => {
 })
 
 router
-  .get('https://sheet-project-294316.df.r.appspot.com/get', retrieveData)
-  .get('https://sheet-project-294316.df.r.appspot.com/batch-get', retrieveUsersBatchGet)
-  .get('https://sheet-project-294316.df.r.appspot.com/clear-data', clearData)
-  .get('https://sheet-project-294316.df.r.appspot.com/batch-clear', batchClearData)
+  .get('/get', retrieveData)
+  .get('/batch-get', retrieveUsersBatchGet)
+  .get('/clear-data', clearData)
+  .get('/batch-clear', batchClearData)
 
-  .get('https://sheet-project-294316.df.r.appspot.com/g', googleAuth)
-  .get('https://sheet-project-294316.df.r.appspot.com/oauth2callback', oauth2callback)
-  .get('https://sheet-project-294316.df.r.appspot.com/from-sheets-to-excel', fromSheetsToExcel)
+  .get('/g', googleAuth)
+  .get('/oauth2callback', oauth2callback)
+  .get('/from-sheets-to-excel', fromSheetsToExcel)
+  .get('/new-spreadsheet', createSpreadsheet)
 
 export default router
