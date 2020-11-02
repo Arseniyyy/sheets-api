@@ -3,8 +3,7 @@ import router from './router/main'
 
 const app: Application = express()
 
-app.use(express.static('public'))
-  .use(express.urlencoded({ extended: false }))
+app.use(express.urlencoded({ extended: false }))
   .use(express.json())
   .use('/', router)
   .use((req: Request, res: Response, next: NextFunction) => {
