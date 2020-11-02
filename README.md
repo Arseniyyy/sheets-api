@@ -1,5 +1,4 @@
 # App built with google-sheets-api technology
-<<<<<<< HEAD
 
 ## Table of contents
 * [General info](#general-info)
