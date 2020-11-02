@@ -1,7 +1,7 @@
 {
   "name": "sheets",
   "version": "1.0.0",
-  "description": "",
+  "description": "The sample which shows how to work with Google Sheets api + oAuth 2.0 authentication with Google",
   "main": "index.js",
   "dependencies": {
     "@google-cloud/storage": "^5.4.0",
@@ -22,7 +22,7 @@
     "start": "node ./dist/server.js",
     "start:dev": "nodemon ./dist/server.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["google-sheets-api", "node-js"],
+  "author": "arskosh05@mail.ru",
   "license": "ISC"
 }

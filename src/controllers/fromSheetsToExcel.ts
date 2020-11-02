@@ -4,8 +4,6 @@ import { Request, Response } from 'express'
 import { sheets } from './sheets/sheetsDeclaration'
 import path from 'path'
 
-// path = E:/Programming/google_apis/sheets/src/excel/files/By_xlsx.xlsx
-
 export async function fromSheetsToExcel(req: Request, res: Response) {
   try {
     const id = req.query.id
