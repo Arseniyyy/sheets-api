@@ -8,7 +8,7 @@ export async function retrieveUsersBatchGet(req: Request, res: Response) {
     const id = req.query.id
     const ranges = req.query.ranges
 
-    const arrOfRanges: string[] = (ranges as string).split(', ')
+    const arrOfRanges: string[] = (ranges as string).split(',')
 
     const opts: sheets_v4.Params$Resource$Spreadsheets$Values$Batchget = {
       spreadsheetId: id as string,
