@@ -8,10 +8,10 @@
 * [Samples of using](#samples-of-using)
 
 ## Working application
-The app is available on that [addres](https://sheet-project-294316.el.r.appspot.com/)
+The app is available at that [address](https://sheet-project-294316.el.r.appspot.com/)
 
 ## General info
-This project is application which can authentiate users with Google oAuth 2.0 and make requests to the [Google Sheets API](https://developers.google.com/sheets/api/quickstart/nodejs)
+This project is an application that can authenticate users with Google oAuth 2.0 and make requests to the [Google Sheets API](https://developers.google.com/sheets/api/quickstart/nodejs)
 
 ## Technologies
 Project is created with:
@@ -34,7 +34,7 @@ The app will be working on port 8080
 Go to http://localhost:8080
 
 ## Important
-You should to download you credentials.json file from https://console.cloud.google.com/apis/credentials to google's folder in project. It's important because without it app won't be work fine and authentication will be crashed. After downloading you should change the redirect URI in you credentials.json file to http://localhost:8080/oauth2callback
+You should download your credentials.json file from https://console.cloud.google.com/apis/credentials to google folder in the project. It's important because without it the app won't be work fine and authentication will be crashed. After downloading you should change the redirect URI in your credentials.json file to http://localhost:8080/oauth2callback
 
 ## Samples of using
 * https://sheet-project-294316.el.r.appspot.com/g - to authenticate with google
